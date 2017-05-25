@@ -10,18 +10,15 @@
 
 if(!empty($_POST['from'])){
 require_once('AfricasTalkingGateway.php');
+require_once('config.php');
 
-$username   = "jani";
-$apikey     = "d46192b5e6c1bdf6e24ae3760f5d49cde42e8b09d53f01fc929eec205996f5ce";
-
-$recipients = "+254708415904";
 
 $message    = "Thanks for coming. Far too kind. I'm a lumberjack and its ok, I sleep all night and I work all day";
 
 // Specify your AfricasTalking shortCode or sender id
 $from = "88000";
 
-$gateway    = new AfricasTalkingGateway($username, $apikey, "sandbox");
+$gateway    = new AfricasTalkingGateway($username, $apiKey, "sandbox");
 
 try 
 {
