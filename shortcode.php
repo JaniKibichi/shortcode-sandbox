@@ -1,6 +1,6 @@
 <?php
 
- $from = $_POST['from'];
+ $Sender = $_POST['from'];
  $to = $_POST['to'];
  $text = $_POST['text'];
  $date = $_POST['date'];
@@ -9,32 +9,33 @@
 //Sending Messages using sender id/short code
 
 if(!empty($_POST['from'])){
-require_once "AfricasTalkingGateway.php";
-require_once "config.php";
+	require_once "AfricasTalkingGateway.php";
 
-$message = "Thanks for coming. Far too kind. I'm a lumberjack and its ok, I sleep all night and I work all day";
+	$recipients = $Sender; //this is the client who has just send in the SMS and you are Autoreplying.
 
-// Specify your AfricasTalking shortCode or sender id
-$from = "88000";
+	$message    = "Thanks for coming. Far too kind. I'm a lumberjack and its ok, I sleep all night and I work all day";
 
-$gateway    = new AfricasTalkingGateway($username, $apiKey, "sandbox");
+	// Specify your AfricasTalking shortCode or sender id
+	$from = "88000";
 
-try 
-{
-   
-   $results = $gateway->sendMessage($to, $message, $from);
-			
-  foreach($results as $result) {
-    echo " Number: " .$result->number;
-    echo " Status: " .$result->status;
-    echo " MessageId: " .$result->messageId;
-    echo " Cost: "   .$result->cost."\n";
-  }
-}
-catch ( AfricasTalkingGatewayException $e )
-{
-  echo "Encountered an error while sending: ".$e->getMessage();
-}
+	$gateway    = new AfricasTalkingGateway($username, $apiKey, "sandbox");
+
+	try 
+	{
+	   
+	  $results = $gateway->sendMessage($recipients, $message, $from);
+				
+	  foreach($results as $result) {
+	    echo " Number: " .$result->number;
+	    echo " Status: " .$result->status;
+	    echo " MessageId: " .$result->messageId;
+	    echo " Cost: "   .$result->cost."\n";
+	  }
+	}
+	catch ( AfricasTalkingGatewayException $e )
+	{
+	  echo "Encountered an error while sending: ".$e->getMessage();
+	}
 
 // DONE!!! 
 
