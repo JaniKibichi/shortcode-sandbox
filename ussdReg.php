@@ -65,7 +65,7 @@ if($userAvail && $userAvail['city']!=NULL && $userAvail['username']!=NULL) {
             $code = '20880';
             $recipients = $phoneNumber;
             $message    = "https://hahahah12-grahamingokho.c9.io/kaka.mp3";
-            $gateway    = new AfricasTalkingGateway($username, $apikey);
+            $gateway    = new AfricasTalkingGateway($username, $apiKey,"sandbox");
             try { $results = $gateway->sendMessage($recipients, $message, $code); }
             catch ( AfricasTalkingGatewayException $e ) {  echo "Encountered an error while sending: ".$e->getMessage(); }
             
@@ -85,7 +85,7 @@ if($userAvail && $userAvail['city']!=NULL && $userAvail['username']!=NULL) {
           //Call User and connect them to Random number from script on callback;
           $to   = $callOut;
           // Create a new instance of our awesome gateway class
-          $gateway = new AfricasTalkingGateway($username, $apikey);
+          $gateway = new AfricasTalkingGateway($username, $apiKey,"sandbox");
           // Any gateway errors will be captured by our custom Exception class below, 
           // so wrap the call in a try-catch block
           try 
@@ -107,7 +107,7 @@ if($userAvail && $userAvail['city']!=NULL && $userAvail['username']!=NULL) {
     //JSON encode
     $recipientStringFormat = json_encode($recipients);
     //Create an instance of our awesome gateway class and pass your credentials
-    $gateway = new AfricasTalkingGateway($username, $apiKey);    
+    $gateway = new AfricasTalkingGateway($username, $apiKey,"sandbox");    
     // Thats it, hit send and we'll take care of the rest. Any errors will be captured in the Exception class as shown below
    try {
     $results = $gateway->sendAirtime($recipientStringFormat);

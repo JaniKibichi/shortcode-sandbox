@@ -1,10 +1,7 @@
 <?php
 // Be sure to include our gateway class
-require_once('AfricasTalkingGateway.php');
-
-// Specify your login credentials
-$username   = "jani";
-$apikey     = "d46192b5e6c1bdf6e24ae3760f5d49cde42e8b09d53f01fc929eec205996f5ce";
+require_once "AfricasTalkingGateway.php";
+require_once "config.php";   
 
 // Specify your Africa's Talking phone number in international format
 $from = "+254722000000";
@@ -14,7 +11,7 @@ $from = "+254722000000";
 $to   = "+254708415904";
 
 // Create a new instance of our awesome gateway class
-$gateway = new AfricasTalkingGateway($username, $apikey, "sandbox");
+$gateway = new AfricasTalkingGateway($username, $apiKey, "sandbox");
 
 // Any gateway errors will be captured by our custom Exception class below, 
 // so wrap the call in a try-catch block

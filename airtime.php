@@ -1,17 +1,9 @@
 <?php
 
-		require_once "AfricasTalkingGateway.php";
-		
-		//Specify your credentials
-		$username = "jani";
-		$apiKey   = "68c993a2f1780b4bcd60323b9941675349cda487ba54109367f82532541636e9";
-		
-		//Specify the phone number/s and amount in the format shown
-		//Example shown assumes we want to send KES 100 to two numbers
-		// Please ensure you include the country code for phone numbers (+254 for Kenya in this case)
-        // Please ensure you include the country code for phone numbers (KES for Kenya in this case)
-		
-		$recipients = array(
+	require_once "AfricasTalkingGateway.php";
+	require_once "config.php";
+
+	$recipients = array(
 		                array("phoneNumber"=>"+254716688609", "amount"=>"KES 100"),
 					             array("phoneNumber"=>"+254708415904", "amount"=>"KES 100")
 					           );

@@ -1,10 +1,6 @@
 <?php
 require_once "AfricasTalkingGateway.php";
-
-//Specify your credentials
-$username = "JANI";
-$apiKey   = "d46192b5e6c1bdf6e24ae3760f5d49cde42e8b09d53f01fc929eec205996f5ce";
-
+require_once "config.php";   
 // NOTE: If connecting to the sandbox, please use your sandbox login credentials	
 
 // Specify the number that you want to subscribe

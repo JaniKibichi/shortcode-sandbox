@@ -9,11 +9,10 @@
 //Sending Messages using sender id/short code
 
 if(!empty($_POST['from'])){
-require_once('AfricasTalkingGateway.php');
-require_once('config.php');
+require_once "AfricasTalkingGateway.php";
+require_once "config.php";
 
-
-$message    = "Thanks for coming. Far too kind. I'm a lumberjack and its ok, I sleep all night and I work all day";
+$message = "Thanks for coming. Far too kind. I'm a lumberjack and its ok, I sleep all night and I work all day";
 
 // Specify your AfricasTalking shortCode or sender id
 $from = "88000";
@@ -23,7 +22,7 @@ $gateway    = new AfricasTalkingGateway($username, $apiKey, "sandbox");
 try 
 {
    
-   $results = $gateway->sendMessage($recipients, $message, $from);
+   $results = $gateway->sendMessage($to, $message, $from);
 			
   foreach($results as $result) {
     echo " Number: " .$result->number;

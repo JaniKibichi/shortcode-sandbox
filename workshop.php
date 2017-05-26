@@ -1,19 +1,15 @@
 <?php
-require_once('AfricasTalkingGateway.php');
+require_once "AfricasTalkingGateway.php";
+require_once "config.php";   
 
-$username   = "jani";
-$apikey     = "d46192b5e6c1bdf6e24ae3760f5d49cde42e8b09d53f01fc929eec205996f5ce";
-$recipients = "+254708415904,+254715761632";
-
+$recipients = "+254708415904";
 $message    = "I'm a lumberjack and its ok, I sleep all night and I work all day";
-
-$gateway    = new AfricasTalkingGateway($username, $apikey,"sandbox");
+$gateway    = new AfricasTalkingGateway($username, $apiKey,"sandbox");
 
 try 
 { 
   // Thats it, hit send and we'll take care of the rest. 
-  $results = $gateway->sendMessage($recipients, $message);
-			
+  $results = $gateway->sendMessage($recipients, $message);		
   foreach($results as $result) {
     // status is either "Success" or "error message"
     echo " Number: " .$result->number;

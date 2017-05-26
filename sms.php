@@ -1,11 +1,7 @@
 <?php
 // Be sure to include the file you've just downloaded
 require_once('AfricasTalkingGateway.php');
-
-// Specify your login credentials
-$username   = "jani";
-$apikey     = "d46192b5e6c1bdf6e24ae3760f5d49cde42e8b09d53f01fc929eec205996f5ce";
-//"680fdfa9eae83b8649c7d3884ad0679b827c7393140bc68b85e0e5b0a31dcb68";
+require_once "config.php";   
 
 // NOTE: If connecting to the sandbox, please use your sandbox login credentials
 
@@ -17,7 +13,7 @@ $recipients = "+254787235065";
 $message    = "I'm a lumberjack and its ok, I sleep all night and I work all day";
 
 // Create a new instance of our awesome gateway class
-$gateway    = new AfricasTalkingGateway($username, $apikey, "sandbox");
+$gateway    = new AfricasTalkingGateway($username, $apiKey, "sandbox");
 
 try 
 { 

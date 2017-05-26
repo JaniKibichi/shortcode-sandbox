@@ -1,10 +1,6 @@
 <?php
-require_once('AfricasTalkingGateway.php');
-//Specify your credentials
-$username = "jani";
-$apiKey   = "d46192b5e6c1bdf6e24ae3760f5d49cde42e8b09d53f01fc929eec205996f5ce";
-//"680fdfa9eae83b8649c7d3884ad0679b827c7393140bc68b85e0e5b0a31dcb68";
-        
+require_once "AfricasTalkingGateway.php";
+require_once "config.php";        
 //Create an instance of our awesome gateway class and pass your credentials
 $gateway = new AfricasTalkingGateway($username, $apiKey, "sandbox");
 // NOTE: If connecting to the sandbox, please add the sandbox flag to the constructor:
